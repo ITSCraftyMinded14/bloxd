@@ -247,7 +247,7 @@
 
 <body>
 
-<div id="login" style="display: none;">
+<div id="login">
 
 <h1>Login to BloxdTools</h1>
 
@@ -321,8 +321,6 @@ checkSession();
 supabaseClient.auth.onAuthStateChange((event, session) => {
     if (session) {
         window.location.replace("/");
-    } else {
-        document.getElementById("login").style.display = "block";
     }
 });
 
