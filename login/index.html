@@ -247,7 +247,7 @@
 
 <body>
 
-<div id="login">
+<div id="login" style="display: none;">
 
 <h1>Login to BloxdTools</h1>
 
@@ -311,6 +311,8 @@ async function checkSession() {
     if (data.session) {
         window.location.replace("/");
     }
+
+    document.getElementById("login").style.display = "block";
 }
 
 checkSession();
