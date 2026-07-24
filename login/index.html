@@ -222,6 +222,10 @@
         box-shadow: 0 4px 12px rgba(112, 172, 255, 0.15);
         transform: translateY(-2px);
       }
+
+      #complete {
+        display: none;
+      }
     </style>
 
 </head>
@@ -282,7 +286,7 @@ supabaseClient.auth.onAuthStateChange(
 
     if(session){
 
-        document.getElementById("login").style.display="none";
+        document.getElementById("body").style.display="none";
 
         document.getElementById("complete").style.display="block";
 
