@@ -209,6 +209,8 @@
       }
       
       button {
+        width: 95%;
+        height: 35px;
         background: var(--card-bg);
         align-items: center;
         justify-content: center;
@@ -218,6 +220,8 @@
         overflow: hidden;
         display: flex;
         flex-direction: row;
+        cursor: pointer;
+        margin: 10px;
         transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
       }
 
@@ -227,8 +231,15 @@
         transform: translateY(-2px);
       }
 
+      button.loading {
+        background: #999999;
+        color: white;
+      }
+
       #complete {
-        display: none;
+        display:none;
+        font-size:30px;
+        font-weight:bold;
       }
     </style>
 
@@ -262,7 +273,7 @@ Complete!
 
 const supabaseClient = supabase.createClient(
     "https://teqlwaiasfhlptolmyii.supabase.co",
-    "YOUR_PUBLISHABLE_KEY"
+    "sb_publishable_E_2OtvS_u4YIJSqGXSUMzQ_b7Jy3mvO"
 );
 
 
@@ -270,8 +281,13 @@ async function login(provider){
 
     let button = document.getElementById(provider);
 
+    button.disabled = true;
     button.classList.add("loading");
-    button.innerHTML = "Loading...";
+
+    button.innerHTML = `
+    <img src="/img/${provider}-logo.svg">
+    Loading...
+    `;
 
 
     await supabaseClient.auth.signInWithOAuth({
@@ -279,7 +295,7 @@ async function login(provider){
         provider: provider,
 
         options:{
-            redirectTo:"http://localhost:3000"
+            redirectTo:"https://bloxdtoolss.github.io/login/"
         }
 
     });
