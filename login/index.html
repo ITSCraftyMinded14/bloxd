@@ -232,6 +232,8 @@
 
 <body>
 
+<div id="login">
+
 <h1>Login to BloxdTools</h1>
 
 <button id="google" onclick="login('google')">
@@ -243,6 +245,8 @@ Login with Google
 <img src="/img/discord-logo.svg">
 Login with Discord
 </button>
+
+</div>
 
 <div id="complete">
 Complete!
@@ -286,7 +290,7 @@ supabaseClient.auth.onAuthStateChange(
 
     if(session){
 
-        document.getElementById("body").style.display="none";
+        document.getElementById("login").style.display="none";
 
         document.getElementById("complete").style.display="block";
 
