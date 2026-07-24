@@ -310,10 +310,11 @@ supabaseClient.auth.onAuthStateChange(
 
     if(session){
 
+        window.location.href = "/";
+
         document.getElementById("login").style.display="none";
 
         document.getElementById("complete").style.display="block";
-
     }
 
 });
