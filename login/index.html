@@ -310,21 +310,10 @@ async function checkSession() {
 
     if (data.session) {
         window.location.replace("/");
-    } else {
-        document.getElementById("login").style.display = "block";
     }
+      
+    document.getElementById("login").style.display = "block";
 }
-
-checkSession();
-
-
-supabaseClient.auth.onAuthStateChange((event, session) => {
-    if (session) {
-        window.location.replace("/");
-    } else {
-        document.getElementById("login").style.display = "block";
-    }
-});
 
 </script>
 
