@@ -321,6 +321,8 @@ checkSession();
 supabaseClient.auth.onAuthStateChange((event, session) => {
     if (session) {
         window.location.replace("/");
+    } else {
+        document.getElementById("login").style.display = "block";
     }
 });
 
