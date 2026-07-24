@@ -305,20 +305,22 @@ async function login(provider){
 
 // Check if already logged in
 
-supabaseClient.auth.onAuthStateChange(
-(event, session)=>{
+async function checkSession() {
+    const { data } = await supabaseClient.auth.getSession();
 
-    if(session){
-
-        window.location.href = "/";
-
-        document.getElementById("login").style.display="none";
-
-        document.getElementById("complete").style.display="block";
+    if (data.session) {
+        window.location.replace("/");
     }
+}
 
+checkSession();
+
+
+supabaseClient.auth.onAuthStateChange((event, session) => {
+    if (session) {
+        window.location.replace("/");
+    }
 });
-
 
 </script>
 
